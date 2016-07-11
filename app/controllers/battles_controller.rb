@@ -4,7 +4,6 @@ class BattlesController < ApplicationController
     authorize @battle
 
     if @battle.save
-      BattleMember.create(battle_id: @battle.id, member_id: battle_params[:owner_id], member_type: "User")
       respond_to do |format|
         format.html { redirect_to @battle }
         format.json { render json: @battle }

@@ -21,4 +21,5 @@
     .col-md-3
       = image_tag('default_profile.jpg', class: 'card-img-top img-fluid')
       .card-block
-        %h4.card-title= member.member.email
+        %h4.card-title= member.member.email if @battle.mode == "for_users"
+        %h4.card-title= member.member.name if @battle.mode == "for_groups"
