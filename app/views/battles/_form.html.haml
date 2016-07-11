@@ -7,7 +7,7 @@
         %h4#battleFormModalLabel.modal-title New battle
       .modal-body
         = simple_form_for @battle do |f|
-          = f.input_field :name, label: false, placeholder: 'Name', required: true, class: 'form-group form-control'
+          = f.input_field :name, label: false, placeholder: 'Name', class: 'form-group form-control'
           = f.input_field :mode, as: :select, collection: Battle.modes.keys.to_a, include_blank: false, label: false, class: 'form-group form-control'
           = f.input_field :owner_id, as: :hidden, value: current_user.id
           = f.submit class: 'btn btn-info-outline'
