@@ -12,7 +12,7 @@ class BattlesController < ApplicationController
   end
 
   def index
-    @battles = Battle.all
+    @battles = current_user.all_battles
     authorize @battles
     @battle = Battle.new
     authorize @battle, :new?
