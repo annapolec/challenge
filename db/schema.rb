@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709175219) do
+ActiveRecord::Schema.define(version: 20160711133846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "battle_members", force: :cascade do |t|
+    t.integer  "battle_id"
+    t.integer  "member_id"
+    t.string   "member_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["battle_id"], name: "index_battle_members_on_battle_id", using: :btree
+    t.index ["member_id"], name: "index_battle_members_on_member_id", using: :btree
+  end
 
   create_table "battles", force: :cascade do |t|
     t.string   "name"
