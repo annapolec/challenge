@@ -1,0 +1,13 @@
+#challengeFormModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "challengeFormModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#challengeFormModalLabel.modal-title New challenge
+      .modal-body
+        = simple_form_for [@battle, @challenge] do |f|
+          = f.input_field :name, label: false, placeholder: 'Name', class: 'form-group form-control'
+          = f.input_field :desc, label: false, placeholder: 'Description', class: 'form-group form-control'
+          = f.input_field :points, label: false, placeholder: 'Points', class: 'form-group form-control'
+          = f.submit class: 'btn btn-info-outline'

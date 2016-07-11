@@ -1,12 +1,19 @@
 .row.p-t-3
   %h1.text-xs-center= @battle.name
+  .col-md-6.col-md-offset-3
+    .list-group
+      - @battle.persisted_challenges.each do |challenge|
+        = link_to challenge.name, battle_challenge_path(@battle, challenge), class: 'list-group-item'
 
 .row
   .col-md-offset-4
     .btn-group.m-t-3
+      %button.btn.btn-info-outline{"data-target" => "#challengeFormModal", "data-toggle" => "modal", :type => "button"}
+        Add challenge
       %button.btn.btn-info-outline{"data-target" => "#battleMemberFormModal", "data-toggle" => "modal", :type => "button"}
         Add member
 
+= render 'challenges/form'
 = render 'battle_members/form'
 
 .row.m-t-2

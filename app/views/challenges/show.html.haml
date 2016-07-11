@@ -1,0 +1,9 @@
+.row.p-t-3
+  %h1.text-xs-center
+    = @challenge.name
+    %span.label.label-pill.label-info= @challenge.points
+  %p.text-xs-center= @challenge.desc
+
+.row.m-t-3
+  = button_to "Back to battle", battle_path(@battle), method: :get, class: 'btn btn-info-outline center-block'
+
