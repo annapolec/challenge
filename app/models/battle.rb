@@ -3,6 +3,7 @@ class Battle < ActiveRecord::Base
   has_many :challenges
   belongs_to :owner, class_name: 'User'
 
+  validates :name, :owner_id, presence: true
   enum mode: %w(for_users for_groups)
 
   def persisted_members
