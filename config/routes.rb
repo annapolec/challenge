@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :battle_members
   resources :groups
+  resources :group_users
 
   authenticated :user do
     root :to => "battles#index", as: :authenticated_root
