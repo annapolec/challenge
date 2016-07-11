@@ -19,7 +19,6 @@ class ChallengesController < ApplicationController
     authorize @challenge
 
     @challenge_member = ChallengeMember.new
-    authorize @challenge_member, :new?
   end
 
   def index
