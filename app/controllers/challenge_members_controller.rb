@@ -1,6 +1,7 @@
 class ChallengeMembersController < ApplicationController
   def create
     @challenge_member = ChallengeMember.new(challenge_member_params)
+    authorize @challenge_member
 
     if @challenge_member.save
       respond_to do |format|
@@ -12,6 +13,7 @@ class ChallengeMembersController < ApplicationController
 
   def destroy
     @challenge_member = ChallengeMember.find(params[:id])
+    authorize @challenge_member
 
     if @challenge_member.destroy
       respond_to do |format|

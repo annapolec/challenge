@@ -1,6 +1,7 @@
 class GroupUsersController < ApplicationController
   def create
     @group_user = GroupUser.new(group_user_params)
+    authorize @group_user
     
     if @group_user.save
       respond_to do |format|

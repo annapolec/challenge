@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
   def create
     @battle = Battle.find(params[:battle_id])
     @challenge = @battle.challenges.build(challenge_params)
+    authorize @challenge
 
     if @challenge.save
       respond_to do |format|
@@ -13,13 +14,19 @@ class ChallengesController < ApplicationController
 
   def show
     @battle = Battle.find(params[:battle_id])
+
     @challenge = Challenge.find(params[:id])
+    authorize @challenge
+
     @challenge_member = ChallengeMember.new
+    authorize @challenge_member, :new?
   end
 
   def index
     @battle = Battle.find(params[:battle_id])
+
     @challenges = @battle.challenges
+    authorize @challenges
 
     respond_to do |format|
       format.html
@@ -29,11 +36,14 @@ class ChallengesController < ApplicationController
 
   def edit
     @challenge = Challenge.find(params[:id])
+    authorize @challenge
   end
 
   def update
     @battle = Battle.find(params[:battle_id])
+
     @challenge = Challenge.find(params[:id])
+    authorize @challenge
 
     if @challenge.update_attributes(challenge_params)
       respond_to do |format|
@@ -45,7 +55,9 @@ class ChallengesController < ApplicationController
 
   def destroy
     @battle = Battle.find(params[:battle_id])
+      
     @challenge = Challenge.find(params[:id])
+    authorize @challenge
     
     if @challenge.destroy
       respond_to do |format|

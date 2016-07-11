@@ -1,8 +1,10 @@
 class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
+    authorize @group
     
     if @group.save
+      GroupUser.create(group_id: @group.id, user_id: current_user.id)
       respond_to do |format|
         format.html { redirect_to @group }
         format.json { render json: @group }
@@ -12,7 +14,10 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    authorize @groups
+
     @group = Group.new
+    authorize @group, :new?
 
     respond_to do |format|
       format.html
@@ -22,15 +27,19 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    authorize @group
+
     @group_user = GroupUser.new
   end
 
   def edit
     @group = Group.find(params[:id])
+    authorize @group
   end
 
   def update
     @group = Group.find(params[:id])
+    authorize @group
 
     if @group.update_attributes(group_params)
       respond_to do |format|
@@ -42,6 +51,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
+    authorize @group
 
     if @group.destroy
       respond_to do |format|

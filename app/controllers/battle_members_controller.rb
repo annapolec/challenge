@@ -1,7 +1,8 @@
 class BattleMembersController < ApplicationController  
   def create
     @battle_member = BattleMember.new(battle_member_params)
-    
+    authorize @battle_member
+
     if @battle_member.save
       respond_to do |format|
         format.html { redirect_to @battle_member.battle }
@@ -12,6 +13,7 @@ class BattleMembersController < ApplicationController
 
   def destroy
     @battle_member = BattleMember.find(params[:id])
+    authorize @battle_member
     
     if @battle_member.destroy
       respond_to do |format|
