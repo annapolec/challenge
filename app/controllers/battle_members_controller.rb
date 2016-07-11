@@ -1,7 +1,7 @@
 class BattleMembersController < ApplicationController  
   def create
     @battle_member = BattleMember.new(battle_member_params)
-
+    
     if @battle_member.save
       respond_to do |format|
         format.html { redirect_to @battle_member.battle }

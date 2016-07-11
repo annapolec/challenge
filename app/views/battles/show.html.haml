@@ -1,2 +1,17 @@
 .row.p-t-3
   %h1.text-xs-center= @battle.name
+
+.row
+  .col-md-offset-4
+    .btn-group.m-t-3
+      %button.btn.btn-info-outline{"data-target" => "#battleMemberFormModal", "data-toggle" => "modal", :type => "button"}
+        Add member
+
+= render 'battle_members/form'
+
+.row.m-t-2
+  - @battle.persisted_members.each do |member|
+    .col-md-3
+      = image_tag('default_profile.jpg', class: 'card-img-top img-fluid')
+      .card-block
+        %h4.card-title= member.member.email

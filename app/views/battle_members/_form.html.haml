@@ -1,0 +1,15 @@
+#battleMemberFormModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "battleMemberFormModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#battleMemberFormModalLabel.modal-title
+          Add member
+      .modal-body
+        = simple_form_for @battle_member do |f|
+          = f.input_field :battle_id, as: :hidden, value: @battle.id
+          = f.input_field :member_id, collection: User.all, label_method: :email, value_method: :id, label: false, class: 'form-group form-control'
+          = f.input_field :member_type, as: :hidden, value: "User"
+
+          = f.submit class: 'btn btn-info-outline'

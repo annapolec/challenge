@@ -22,6 +22,7 @@ class BattlesController < ApplicationController
 
   def show
     @battle = Battle.find(params[:id])
+    @battle_member = @battle.battle_members.new
   end
 
   def edit
