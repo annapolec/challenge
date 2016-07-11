@@ -1,0 +1,12 @@
+.row.p-t-3
+  %h1.text-xs-center My groups
+  .col-md-6.col-md-offset-3
+    .list-group
+      - @groups.each do |group|
+        = link_to group.name, group_path(group), class: 'list-group-item'
+.row  
+  .col-md-2.col-md-offset-5.m-t-2
+    %button.btn.btn-info-outline.btn-lg{"data-target" => "#groupFormModal", "data-toggle" => "modal", :type => "button"}
+      New group
+
+= render 'form'

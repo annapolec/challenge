@@ -1,0 +1,12 @@
+#groupFormModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "groupFormModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#groupFormModalLabel.modal-title New group
+      .modal-body
+        = simple_form_for @group do |f|
+          = f.input_field :name, label: false, placeholder: 'Name', class: 'form-group form-control'
+          = f.submit class: 'btn btn-info-outline'
+
