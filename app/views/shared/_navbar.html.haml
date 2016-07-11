@@ -2,8 +2,8 @@
   %nav.navbar.navbar-fixed-top.navbar-light.bg-faded
     .container
       .nav.navbar-nav
-        = link_to "Battles", '#', class: 'nav-item active nav-link'
-        = link_to "Groups", '#', class: 'nav-item active nav-link'
+        = link_to "Battles", battles_path, class: 'nav-item active nav-link'
+        = link_to "Groups", groups_path, class: 'nav-item active nav-link'
         = link_to "Ranking", '#', class: 'nav-item active nav-link'
         - if current_user
           = link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-item nav-link pull-xs-right'
