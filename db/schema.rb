@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711133846) do
+ActiveRecord::Schema.define(version: 20160711145948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20160711133846) do
     t.index ["owner_id"], name: "index_battles_on_owner_id", using: :btree
   end
 
+  create_table "challenges", force: :cascade do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.integer  "points"
+    t.integer  "owner_id"
+    t.integer  "battle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["battle_id"], name: "index_challenges_on_battle_id", using: :btree
+    t.index ["owner_id"], name: "index_challenges_on_owner_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -52,4 +64,5 @@ ActiveRecord::Schema.define(version: 20160711133846) do
   end
 
   add_foreign_key "battles", "users", column: "owner_id"
+  add_foreign_key "challenges", "users", column: "owner_id"
 end
