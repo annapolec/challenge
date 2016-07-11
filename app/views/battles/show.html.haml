@@ -12,6 +12,9 @@
         Add challenge
       %button.btn.btn-info-outline{"data-target" => "#battleMemberFormModal", "data-toggle" => "modal", :type => "button"}
         Add member
+      = link_to "Ranking", battle_ranking_path(@battle), class: 'btn btn-info-outline'
+
+
 
 = render 'challenges/form'
 = render 'battle_members/form'

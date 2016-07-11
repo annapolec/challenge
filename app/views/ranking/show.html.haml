@@ -1,0 +1,8 @@
+.row.p-t-3
+  %h1.text-xs-center Ranking
+  .col-md-6.col-md-offset-3
+    .list-group
+      - @ranking.results.each do |user_id, points|
+        .list-group-item
+          = User.find(user_id).email
+          = points
