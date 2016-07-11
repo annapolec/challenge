@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
   def show
     @battle = Battle.find(params[:battle_id])
     @challenge = Challenge.find(params[:id])
+    @challenge_member = ChallengeMember.new
   end
 
   def index
