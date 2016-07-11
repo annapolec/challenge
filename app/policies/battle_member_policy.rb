@@ -1,6 +1,6 @@
 class BattleMemberPolicy < ApplicationPolicy
   def create?
-    battle_member?
+    battle_member? || battle_owner?
   end
 
   def destroy?
@@ -14,6 +14,6 @@ class BattleMemberPolicy < ApplicationPolicy
   end
 
   def battle_owner?
-    record.battle.owner_id == user.id
+    @record.battle.owner == @user
   end
 end
