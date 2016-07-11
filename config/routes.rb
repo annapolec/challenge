@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :battles
+  resources :battles do
+     resources :challenges
+  end
   resources :battle_members
 
   authenticated :user do
