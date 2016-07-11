@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'haml-rails', '~> 0.9.0'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
