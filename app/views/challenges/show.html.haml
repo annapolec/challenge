@@ -6,11 +6,12 @@
 
 .row.m-t-3
   = button_to "Back to battle", battle_path(@battle), method: :get, class: 'btn btn-info-outline center-block'
-  = simple_form_for @challenge_member do |f|
-    = f.input_field :challenge_id, as: :hidden, value: @challenge.id
-    = f.input_field :member_id, as: :hidden, value: current_user.id
-    = f.input_field :member_type, as: :hidden, value: 'User'
-    = f.submit "Complete it", class: 'btn btn-info-outline center-block'
+  - if policy(@challenge).complete_challenge?
+    = simple_form_for @challenge_member do |f|
+      = f.input_field :challenge_id, as: :hidden, value: @challenge.id
+      = f.input_field :member_id, as: :hidden, value: current_user.id
+      = f.input_field :member_type, as: :hidden, value: 'User'
+      = f.submit "Complete it", class: 'btn btn-info-outline center-block'
 
 .row.m-t-3
   %h4.text-xs-center Completed by
