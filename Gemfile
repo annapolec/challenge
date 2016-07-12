@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'pundit'
 gem 'font-awesome-rails'
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-gem 'draper'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'will_paginate'
 gem 'faker'
 
