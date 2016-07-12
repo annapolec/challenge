@@ -7,7 +7,7 @@ class Battle < ActiveRecord::Base
   enum mode: %w(for_users for_groups)
 
   def persisted_members
-    battle_members.select(&:persisted?)
+    BattleMemberDecorator.decorate_collection(battle_members.select(&:persisted?))
   end
 
   def persisted_challenges
