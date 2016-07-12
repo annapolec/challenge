@@ -1,6 +1,6 @@
 class Battle < ActiveRecord::Base
-  has_many :battle_members
-  has_many :challenges
+  has_many :battle_members, dependent: :destroy
+  has_many :challenges, dependent: :destroy
   belongs_to :owner, class_name: 'User'
 
   validates :name, :owner_id, presence: true
