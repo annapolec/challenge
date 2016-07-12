@@ -9,8 +9,8 @@
   - if policy(@challenge).complete_challenge?
     = simple_form_for @challenge_member do |f|
       = f.input_field :challenge_id, as: :hidden, value: @challenge.id
-      = f.input_field :member_id, as: :hidden, value: current_user.id
-      = f.input_field :member_type, as: :hidden, value: 'User'
+      = f.input_field :member_id, as: :hidden, value: @battle.executor_id(current_user)
+      = f.input_field :member_type, as: :hidden, value: @battle.member_type
       = f.submit "Complete it", class: 'btn btn-info-outline center-block'
 
 .row.m-t-3

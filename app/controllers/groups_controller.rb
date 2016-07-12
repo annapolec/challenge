@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.paginate(page: params[:page], per_page: 10)
+    @groups = current_user.groups.paginate(page: params[:page], per_page: 10)
     authorize @groups
 
     @group = Group.new

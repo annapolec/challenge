@@ -13,7 +13,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @battle = Battle.find(params[:battle_id])
+    @battle = Battle.find(params[:battle_id]).decorate
 
     @challenge = Challenge.find(params[:id])
     authorize @challenge
