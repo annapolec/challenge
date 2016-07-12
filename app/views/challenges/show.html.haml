@@ -15,10 +15,9 @@
 
 .row.m-t-3
   %h4.text-xs-center Completed by
-  - @challenge.challenge_members.each do |challenge_member|
+  - @challenge.challenge_members.decorate.each do |challenge_member|
     .col-md-3
-      = image_tag('default_profile.jpg', class: 'card-img-top img-fluid')
+      = image_tag Faker::Avatar.image, class: 'card-img-top img-fluid'
       .card-block
-        %h4.card-title= challenge_member.member.email if challenge_member.member_type == 'User'
-        %h4.card-title= challenge_member.member.name if challenge_member.member_type == 'Group'
+        %p.card-text= challenge_member.title 
 

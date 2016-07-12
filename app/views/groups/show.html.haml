@@ -11,7 +11,7 @@
 .row.m-t-2
   - @group.users.each do |user|
     .col-md-3
-      = image_tag('default_profile.jpg', class: 'card-img-top img-fluid')
+      = image_tag Faker::Avatar.image, class: 'card-img-top img-fluid'
       .card-block
         %p.card-text= user.email
 

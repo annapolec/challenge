@@ -26,6 +26,6 @@
 .row.m-t-2
   - @battle.persisted_members.each do |member|
     .col-md-3
-      = image_tag('default_profile.jpg', class: 'card-img-top img-fluid')
+      = image_tag Faker::Avatar.image, class: 'card-img-top img-fluid'
       .card-block
-        %h4.card-title= member.title
+        %p.card-text= member.title
