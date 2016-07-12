@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+=======
+# challenge
+It is a Ruby on Rails application for challenging others and completing task, followed by different rankings.
+<br>Initially created as an university project, finished for practise. 
+>>>>>>> 4f4b426971038be75490077e192aa55350452a00
