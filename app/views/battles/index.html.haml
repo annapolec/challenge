@@ -6,8 +6,10 @@
         = link_to battle.name, battle_path(battle), class: 'list-group-item'
           
 .row
-  .col-md-2.col-md-offset-5.m-t-2
-    %button.btn.btn-info-outline.btn-lg{"data-target" => "#battleFormModal", "data-toggle" => "modal", :type => "button"}
-      New battle
+  %button.btn.btn-info-outline.btn-lg.center-block.m-t-2{"data-target" => "#battleFormModal", "data-toggle" => "modal", :type => "button"}
+    New battle
 
+.row
+  .col-md-offset-5
+    = page_navigation_links @battles
 = render 'form'

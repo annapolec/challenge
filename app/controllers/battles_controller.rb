@@ -12,7 +12,7 @@ class BattlesController < ApplicationController
   end
 
   def index
-    @battles = current_user.all_battles
+    @battles = current_user.all_battles.paginate(page: params[:page], per_page: 10)
     authorize @battles
     @battle = Battle.new
     authorize @battle, :new?
