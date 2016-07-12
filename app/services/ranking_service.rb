@@ -3,7 +3,7 @@ class RankingService
     ranking = Ranking.new
     User.all.each do |user|
       ranking.results[user.id] = points(user.id)
-    end      
+    end     
     ranking
   end 
 
@@ -26,8 +26,8 @@ class RankingService
   end
 
   def points_in_battle(battle_id, member_id)
-    challenge_members = ChallengeMember.where(challenge_id: Battle.find(battle_id).challenges.pluck(:id))
-    challenge_members.where(member_id: member_id).inject(0) do |challenge_member|
+    challenge_members = ChallengeMember.where(member_id: member_id, challenge_id: Battle.find(battle_id).challenges.pluck(:id))
+    challenge_members.inject(0) do |sum, challenge_member|
         sum += challenge_member.challenge.points
     end
   end
