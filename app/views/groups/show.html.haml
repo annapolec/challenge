@@ -2,9 +2,11 @@
   %h1.text-xs-center= @group.name
 
 .row
-  .col-md-2.col-md-offset-5.m-t-2
-    %button.btn.btn-info-outline.btn-lg{"data-target" => "#groupUserFormModal", "data-toggle" => "modal", :type => "button"}
-      Add user
+  .col-md-offset-5
+    .btn-group.m-t-3
+      %button.btn.btn-info-outline{"data-target" => "#groupUserFormModal", "data-toggle" => "modal", :type => "button"}
+        Add user
+      = link_to "Destroy group", group_path(@group) , method: :delete, class: 'btn btn-info-outline'
 
 .row.m-t-2
   - @group.users.each do |user|

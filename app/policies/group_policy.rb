@@ -3,6 +3,10 @@ class GroupPolicy < ApplicationPolicy
     group_member?
   end
 
+  def destroy?
+    group_member?
+  end
+
   private
 
   def group_member?
