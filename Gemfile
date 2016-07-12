@@ -15,6 +15,7 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'simple_form'
 gem 'pundit'
 gem 'font-awesome-rails'
+gem 'draper'
 
 group :development, :test do
   gem 'byebug', platform: :mri
