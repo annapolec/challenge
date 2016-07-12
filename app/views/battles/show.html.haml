@@ -3,8 +3,13 @@
   .col-md-6.col-md-offset-3
     .list-group
       - @battle.persisted_challenges.each do |challenge|
-        = link_to challenge.name, battle_challenge_path(@battle, challenge), class: 'list-group-item'
-
+        .col-md-11
+          = link_to challenge.name, battle_challenge_path(@battle, challenge), class: 'list-group-item'
+        .col-md-1
+          - if policy(challenge).destroy?
+            = link_to battle_challenge_path(@battle, challenge), method: :delete do
+              = fa_icon 'trash', class: 'm-t-1'
+              
 .row
   .col-md-offset-4
     .btn-group.m-t-3
@@ -13,8 +18,7 @@
       %button.btn.btn-info-outline{"data-target" => "#battleMemberFormModal", "data-toggle" => "modal", :type => "button"}
         Add member
       = link_to "Ranking", battle_ranking_path(@battle), class: 'btn btn-info-outline'
-
-
+      = link_to "Destroy battle", battle_path, method: :delete, class: 'btn btn-info-outline' if policy(@battle).destroy?
 
 = render 'challenges/form'
 = render 'battle_members/form'

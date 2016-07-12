@@ -15,6 +15,10 @@ class ChallengePolicy < ApplicationPolicy
     battle_member? && !completed_challenge?
   end
 
+  def destroy?
+    battle_owner?
+  end
+
   private
 
   def battle_member?

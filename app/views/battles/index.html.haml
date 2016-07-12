@@ -2,8 +2,9 @@
   %h1.text-xs-center My battles
   .col-md-6.col-md-offset-3
     .list-group
-      - @battles.each do |battle|
+      - @battles.each do |battle|          
         = link_to battle.name, battle_path(battle), class: 'list-group-item'
+          
 .row
   .col-md-2.col-md-offset-5.m-t-2
     %button.btn.btn-info-outline.btn-lg{"data-target" => "#battleFormModal", "data-toggle" => "modal", :type => "button"}
