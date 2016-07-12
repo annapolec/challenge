@@ -17,6 +17,7 @@ gem 'pundit'
 gem 'font-awesome-rails'
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'draper'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
