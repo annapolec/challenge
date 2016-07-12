@@ -9,7 +9,7 @@
       .modal-body
         = simple_form_for @battle_member do |f|
           = f.input_field :battle_id, as: :hidden, value: @battle.id
-          = f.input_field :member_id, collection: @battle.not_assigned_members, value_method: :id, label: false, class: 'form-group form-control'
+          = f.input_field :member_id, collection: @battle.not_assigned_members, label_method: @battle.label_method, value_method: :id, label: false, class: 'form-group form-control'
           = f.input_field :member_type, as: :hidden, value: @battle.member_type
 
           = f.submit class: 'btn btn-info-outline'

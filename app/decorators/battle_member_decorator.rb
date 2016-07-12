@@ -4,5 +4,4 @@ class BattleMemberDecorator < Draper::Decorator
   def title
     member_type == 'User' ? object.member.email : object.member.name
   end
-
 end

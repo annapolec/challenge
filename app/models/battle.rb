@@ -17,8 +17,4 @@ class Battle < ActiveRecord::Base
   def not_assigned_members
     mode == "for_users" ? User.where.not(id: self.battle_members.pluck(:member_id)) : Group.where.not(id: self.battle_members.pluck(:member_id))
   end
-
-  def member_type
-    mode == "for_users" ? "User" : "Group"
-  end
 end
